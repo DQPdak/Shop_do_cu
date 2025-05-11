@@ -4,6 +4,8 @@ const { engine } = require('express-handlebars');
 const app = express();
 const PORT = 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Template engine
 app.engine('hbs', engine({
     extname: '.hbs'
