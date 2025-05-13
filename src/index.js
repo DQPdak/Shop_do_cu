@@ -1,10 +1,25 @@
 const path = require('path');
 const express = require('express');
 const { engine } = require('express-handlebars');
+const methodOverride = require('method-override');
+
 const app = express();
 const PORT = 3000;
 
+const route = require('./routes');
+const db = require('./config/db');
+
+// Connect to db
+db.connect();
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(express.json());
+
+app.use(methodOverride('_method'));
 
 // Template engine
 app.engine('hbs', engine({
@@ -13,8 +28,7 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
+route(app);
+
 
 app.listen(PORT, () => console.log(`App listening at http:localhost:${PORT}`));

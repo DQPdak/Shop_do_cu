@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    <div class="app">
 
-        {{> header}}
-
-        <div class="app_container">
-            {{{body}}}
-        </div>
-        
-        {{> footer}}
-
+    <div class="container">
+        <form class="login" method="POST" action="/login?_method=POST">
+            <img src="/img/logo.png" alt="logo">
+            <input name="user" type="text" placeholder="Nhập MSSV hoặc mã GV">
+            <input name="password" type="password" placeholder="Mật khẩu">
+            <button type="submit">Đăng nhập</button>
+        </form>
     </div>
+   
 </body>
 </html>
+
+
+

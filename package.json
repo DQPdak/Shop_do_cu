@@ -25,10 +25,13 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
-    "express-handlebars": "^8.0.3"
+    "express-handlebars": "^8.0.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.14.2",
+    "mongoose-slug-updater": "^3.3.0"
   },
   "devDependencies": {
     "node-sass": "^9.0.0",
     "nodemon": "^3.1.10"
-  } 
+  }
 }
